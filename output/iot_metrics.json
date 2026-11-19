@@ -1,0 +1,211 @@
+{
+  "total_readings": 17280,
+  "total_kwh": 57154.1,
+  "estimated_energy_cost_idr": 82570528,
+  "potential_peak_savings_idr": 4624519,
+  "total_z_anomalies": 120,
+  "zone_summary": [
+    {
+      "zone": "Clinic / Lobby HVAC",
+      "total_readings": 4320,
+      "avg_temp_c": 23.55,
+      "max_temp_c": 32.88,
+      "avg_humidity_pct": 54.96,
+      "total_kwh": 12351.8,
+      "temp_breaches": 29
+    },
+    {
+      "zone": "Server Room A",
+      "total_readings": 4320,
+      "avg_temp_c": 20.55,
+      "max_temp_c": 30.62,
+      "avg_humidity_pct": 48.0,
+      "total_kwh": 18801.1,
+      "temp_breaches": 27
+    },
+    {
+      "zone": "Server Room B",
+      "total_readings": 4320,
+      "avg_temp_c": 21.05,
+      "max_temp_c": 31.32,
+      "avg_humidity_pct": 49.99,
+      "total_kwh": 17096.7,
+      "temp_breaches": 24
+    },
+    {
+      "zone": "RnEST Lab",
+      "total_readings": 4320,
+      "avg_temp_c": 24.52,
+      "max_temp_c": 33.9,
+      "avg_humidity_pct": 58.03,
+      "total_kwh": 8904.5,
+      "temp_breaches": 22
+    }
+  ],
+  "peak_split": [
+    {
+      "period": "Off-Peak",
+      "readings": 10800,
+      "avg_power_kw": 2.822,
+      "total_kwh": 30478.9
+    },
+    {
+      "period": "Peak (09:00-17:00)",
+      "readings": 6480,
+      "avg_power_kw": 4.117,
+      "total_kwh": 26675.2
+    }
+  ],
+  "hourly_profile": [
+    {
+      "hour_of_day": 0,
+      "avg_temp_c": 21.3,
+      "avg_power_kw": 2.82
+    },
+    {
+      "hour_of_day": 1,
+      "avg_temp_c": 21.4,
+      "avg_power_kw": 2.826
+    },
+    {
+      "hour_of_day": 2,
+      "avg_temp_c": 21.48,
+      "avg_power_kw": 2.823
+    },
+    {
+      "hour_of_day": 3,
+      "avg_temp_c": 21.64,
+      "avg_power_kw": 2.819
+    },
+    {
+      "hour_of_day": 4,
+      "avg_temp_c": 21.84,
+      "avg_power_kw": 2.8
+    },
+    {
+      "hour_of_day": 5,
+      "avg_temp_c": 22.13,
+      "avg_power_kw": 2.825
+    },
+    {
+      "hour_of_day": 6,
+      "avg_temp_c": 22.38,
+      "avg_power_kw": 2.819
+    },
+    {
+      "hour_of_day": 7,
+      "avg_temp_c": 22.75,
+      "avg_power_kw": 2.821
+    },
+    {
+      "hour_of_day": 8,
+      "avg_temp_c": 22.97,
+      "avg_power_kw": 2.826
+    },
+    {
+      "hour_of_day": 9,
+      "avg_temp_c": 23.2,
+      "avg_power_kw": 4.13
+    },
+    {
+      "hour_of_day": 10,
+      "avg_temp_c": 23.37,
+      "avg_power_kw": 4.108
+    },
+    {
+      "hour_of_day": 11,
+      "avg_temp_c": 23.46,
+      "avg_power_kw": 4.101
+    },
+    {
+      "hour_of_day": 12,
+      "avg_temp_c": 23.49,
+      "avg_power_kw": 4.122
+    },
+    {
+      "hour_of_day": 13,
+      "avg_temp_c": 23.5,
+      "avg_power_kw": 4.115
+    },
+    {
+      "hour_of_day": 14,
+      "avg_temp_c": 23.39,
+      "avg_power_kw": 4.118
+    },
+    {
+      "hour_of_day": 15,
+      "avg_temp_c": 23.24,
+      "avg_power_kw": 4.132
+    },
+    {
+      "hour_of_day": 16,
+      "avg_temp_c": 22.95,
+      "avg_power_kw": 4.108
+    },
+    {
+      "hour_of_day": 17,
+      "avg_temp_c": 22.72,
+      "avg_power_kw": 4.114
+    },
+    {
+      "hour_of_day": 18,
+      "avg_temp_c": 22.45,
+      "avg_power_kw": 2.815
+    },
+    {
+      "hour_of_day": 19,
+      "avg_temp_c": 22.09,
+      "avg_power_kw": 2.818
+    },
+    {
+      "hour_of_day": 20,
+      "avg_temp_c": 21.88,
+      "avg_power_kw": 2.813
+    },
+    {
+      "hour_of_day": 21,
+      "avg_temp_c": 21.64,
+      "avg_power_kw": 2.841
+    },
+    {
+      "hour_of_day": 22,
+      "avg_temp_c": 21.42,
+      "avg_power_kw": 2.817
+    },
+    {
+      "hour_of_day": 23,
+      "avg_temp_c": 21.4,
+      "avg_power_kw": 2.847
+    }
+  ],
+  "anomaly_summary": [
+    {
+      "zone": "Server Room A",
+      "mean_temp_c": 20.55,
+      "std_temp_c": 1.09,
+      "z_score_anomalies": 32,
+      "anomaly_rate_pct": 0.74
+    },
+    {
+      "zone": "Server Room B",
+      "mean_temp_c": 21.05,
+      "std_temp_c": 1.08,
+      "z_score_anomalies": 29,
+      "anomaly_rate_pct": 0.67
+    },
+    {
+      "zone": "RnEST Lab",
+      "mean_temp_c": 24.52,
+      "std_temp_c": 1.04,
+      "z_score_anomalies": 26,
+      "anomaly_rate_pct": 0.6
+    },
+    {
+      "zone": "Clinic / Lobby HVAC",
+      "mean_temp_c": 23.55,
+      "std_temp_c": 1.07,
+      "z_score_anomalies": 33,
+      "anomaly_rate_pct": 0.76
+    }
+  ]
+}
