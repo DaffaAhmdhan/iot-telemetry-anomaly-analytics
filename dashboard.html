@@ -1,42 +1,45 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IoT Environmental & Energy Telemetry Analytics | Daffa Ahmadhan K.</title>
+  <title>IoT Environmental &amp; Energy Telemetry Analytics | Daffa Ahmadhan K.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    :root[data-theme="dark"] {
-      --bg: #0d0f12; --surface: #14171c; --surface-2: #1a1e25; --border: #232730;
-      --text: #eceae4; --muted: #9498a1; --accent: #e09f3e; --accent-soft: rgba(224, 159, 62, 0.14);
-      --green: #10b981; --red: #ef4444; --grid: rgba(255, 255, 255, 0.06); --code-bg: #090b0d;
-    }
     :root[data-theme="light"] {
-      --bg: #f6f5f0; --surface: #ffffff; --surface-2: #f0eee7; --border: #e2dfd5;
-      --text: #16181d; --muted: #5a5e66; --accent: #b45309; --accent-soft: rgba(180, 83, 9, 0.10);
-      --green: #059669; --red: #dc2626; --grid: rgba(0, 0, 0, 0.06); --code-bg: #f3f1ea;
+      --bg: #f8fafc; --surface: #ffffff; --surface-2: #f1f5f9; --border: #e2e8f0;
+      --text: #0f172a; --body: #334155; --muted: #64748b; --accent: #2563eb; --accent-soft: rgba(37, 99, 235, 0.12);
+      --green: #059669; --red: #dc2626; --grid: rgba(15, 23, 42, 0.06); --code-bg: #f8fafc;
+      --shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+    }
+    :root[data-theme="dark"] {
+      --bg: #0f172a; --surface: #1e293b; --surface-2: #0f172a; --border: #334155;
+      --text: #f8fafc; --body: #cbd5e1; --muted: #94a3b8; --accent: #60a5fa; --accent-soft: rgba(96, 165, 250, 0.14);
+      --green: #34d399; --red: #f87171; --grid: rgba(255, 255, 255, 0.06); --code-bg: #0b1120;
+      --shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
     }
     * { box-sizing: border-box; }
-    body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Plus Jakarta Sans', system-ui, sans-serif; line-height: 1.55; transition: background 0.2s, color 0.2s; }
+    body { margin: 0; background: var(--bg); color: var(--body); font-family: 'Plus Jakarta Sans', system-ui, sans-serif; line-height: 1.6; transition: background 0.2s, color 0.2s; }
+    h1, h2 { color: var(--text); }
     .mono { font-family: 'JetBrains Mono', monospace; }
     .container { max-width: 1180px; margin: 0 auto; padding: 28px 20px 64px; }
     .topbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 20px; border-bottom: 1px solid var(--border); margin-bottom: 28px; }
-    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 12px; font-weight: 600; text-decoration: none; cursor: pointer; }
+    .btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 13px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 13px; font-weight: 600; text-decoration: none; cursor: pointer; box-shadow: var(--shadow); }
     .btn:hover { border-color: var(--accent); color: var(--accent); }
-    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
-    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-bottom: 24px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 22px; box-shadow: var(--shadow); }
+    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 24px; }
     .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 18px; margin-bottom: 24px; }
-    .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
-    .kpi-val { font-size: 28px; font-weight: 700; margin: 6px 0 2px; }
-    .note-box { border-left: 3px solid var(--green); background: var(--surface-2); padding: 16px 20px; border-radius: 0 8px 8px 0; margin-bottom: 24px; }
-    table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
-    th { text-align: left; color: var(--muted); border-bottom: 1px solid var(--border); padding: 8px 6px; font-weight: 600; }
-    td { padding: 10px 6px; border-bottom: 1px solid var(--border); }
+    .label { font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-weight: 700; }
+    .kpi-val { font-size: 30px; font-weight: 800; color: var(--text); margin: 6px 0 2px; }
+    .note-box { border-left: 4px solid var(--green); background: var(--surface); border-top: 1px solid var(--border); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 18px 22px; border-radius: 0 10px 10px 0; margin-bottom: 24px; box-shadow: var(--shadow); }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th { text-align: left; color: var(--muted); border-bottom: 1px solid var(--border); padding: 9px 6px; font-weight: 600; }
+    td { padding: 10px 6px; border-bottom: 1px solid var(--border); color: var(--text); }
     pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 14px; overflow-x: auto; font-size: 12px; color: var(--text); margin: 12px 0 0; }
-    details summary { cursor: pointer; font-weight: 600; font-size: 13px; color: var(--accent); }
+    details summary { cursor: pointer; font-weight: 700; font-size: 13.5px; color: var(--accent); }
   </style>
 </head>
 <body>
@@ -47,62 +50,62 @@
         <a class="btn" href="https://github.com/DaffaAhmdhan/iot-telemetry-anomaly-analytics" target="_blank" rel="noopener noreferrer">GitHub Repo &nearr;</a>
       </div>
       <div style="display:flex; gap:10px; align-items:center;">
-        <span class="mono" style="font-size:12px; color:var(--muted);">17,280 hourly readings &bull; 180 days</span>
-        <button class="btn" id="themeToggle" type="button">Light Mode</button>
+        <span class="mono" style="font-size:12.5px; color:var(--muted);">17,280 hourly readings &bull; 180 days</span>
+        <button class="btn" id="themeToggle" type="button">Dark Mode</button>
       </div>
     </div>
 
     <header style="margin-bottom:24px;">
-      <div class="mono label" style="color:var(--green);">Case Study 03 // IoT Time-Series &amp; Energy Optimization</div>
-      <h1 style="font-size:28px; margin:6px 0 8px; letter-spacing:-0.02em;">IoT Environmental &amp; Energy Telemetry Analytics</h1>
-      <p style="color:var(--muted); max-width:820px; margin:0; font-size:14px;">
+      <div class="label" style="color:var(--green);">Case Study 03 &bull; IoT Time-Series &amp; Energy Optimization</div>
+      <h1 style="font-size:30px; margin:6px 0 8px; letter-spacing:-0.02em; font-weight:800;">IoT Environmental &amp; Energy Telemetry Analytics</h1>
+      <p style="color:var(--body); max-width:820px; margin:0; font-size:15px;">
         Extending my hardware telemetry work (ESP8266 + SHT31) into statistical time-series analytics across 4 facility zones—detecting Z-score thermal anomalies and quantifying daytime HVAC peak-load savings.
       </p>
     </header>
 
     <div class="note-box">
-      <div class="mono label" style="color:var(--green); margin-bottom:6px;">Analyst Field Notes</div>
-      <p style="margin:0; font-size:13.5px;">
-        <strong>Key operational insight:</strong> Server Rooms A &amp; B consume <strong>62.8%</strong> of total electricity (35,897.8 kWh out of 57,154.1 kWh). Between 09:00 and 17:00, facility draw jumps <strong>45.9%</strong> (4.117 kW vs 2.822 kW off-peak). Meanwhile, Z-score monitoring (<code>|z| &gt; 2.5</code>) flagged <strong>120 thermal anomalies</strong>—including spikes to 30.62&deg;C in Server Room A and 31.32&deg;C in Server Room B. Pre-cooling before 09:00 and shifting 12% of peak load saves <strong>Rp 4.62M per 6 months</strong> (~Rp 9.25M/year).
+      <div class="label" style="color:var(--green); margin-bottom:6px;">Key Takeaway (In Plain English)</div>
+      <p style="margin:0; font-size:14.5px;">
+        <strong>What did the sensor logs uncover?</strong> Server Rooms A &amp; B consume <strong>62.8%</strong> of total electricity (35,897.8 kWh out of 57,154.1 kWh). Between 09:00 and 17:00, facility power draw jumps <strong>45.9%</strong> (4.117 kW vs 2.822 kW off-peak). Statistical Z-score checks (<code>|z| &gt; 2.5</code>) flagged <strong>120 thermal anomalies</strong>—including spikes to 30.62&deg;C in Server Room A and 31.32&deg;C in Server Room B. Pre-cooling before 09:00 saves <strong>Rp 4.62M per 6 months</strong> (~Rp 9.25M/year).
       </p>
     </div>
 
     <section class="kpi-grid">
       <div class="card">
-        <div class="mono label">Hourly Sensor Logs</div>
+        <div class="label">Hourly Sensor Logs</div>
         <div class="kpi-val mono">17,280</div>
-        <div style="font-size:12px; color:var(--muted);">4 zones &times; 4,320 hours</div>
+        <div style="font-size:13px; color:var(--muted);">4 zones &times; 4,320 hours</div>
       </div>
       <div class="card">
-        <div class="mono label">6-Month Energy Draw</div>
+        <div class="label">6-Month Energy Draw</div>
         <div class="kpi-val mono" style="color:var(--green);">57,154 kWh</div>
-        <div style="font-size:12px; color:var(--muted);">Est. Rp 82.57M (Rp 1,444.7/kWh)</div>
+        <div style="font-size:13px; color:var(--muted);">Est. Rp 82.57M (Rp 1,444.7/kWh)</div>
       </div>
       <div class="card">
-        <div class="mono label">Z-Score Anomalies</div>
+        <div class="label">Z-Score Anomalies</div>
         <div class="kpi-val mono" style="color:var(--red);">120</div>
-        <div style="font-size:12px; color:var(--muted);">102 hard SLA breaches (&gt;26–29&deg;C)</div>
+        <div style="font-size:13px; color:var(--muted);">102 SLA breaches (&gt;26–29&deg;C)</div>
       </div>
       <div class="card">
-        <div class="mono label">Peak-Shift Savings</div>
+        <div class="label">Peak-Shift Savings</div>
         <div class="kpi-val mono" style="color:var(--accent);">Rp 4.62M</div>
-        <div style="font-size:12px; color:var(--muted);">12% peak optimization (6 months)</div>
+        <div style="font-size:13px; color:var(--muted);">12% peak optimization (6 months)</div>
       </div>
     </section>
 
     <section class="grid-2">
       <div class="card">
-        <h2 style="font-size:15px; margin:0 0 12px;">24-Hour Diurnal Curve: Avg Power (kW) &amp; Temp (&deg;C)</h2>
+        <h2 style="font-size:16px; margin:0 0 12px;">24-Hour Diurnal Curve: Avg Power (kW) &amp; Temp (&deg;C)</h2>
         <canvas id="diurnalChart" height="155"></canvas>
       </div>
       <div class="card">
-        <h2 style="font-size:15px; margin:0 0 12px;">Energy (kWh) &amp; Threshold Breaches by Zone</h2>
+        <h2 style="font-size:16px; margin:0 0 12px;">Energy (kWh) &amp; Threshold Breaches by Zone</h2>
         <canvas id="zoneChart" height="155"></canvas>
       </div>
     </section>
 
     <section class="card" style="margin-bottom:24px;">
-      <h2 style="font-size:15px; margin:0 0 12px;">Zone Telemetry &amp; Anomaly Matrix</h2>
+      <h2 style="font-size:16px; margin:0 0 12px;">Zone Telemetry &amp; Anomaly Matrix</h2>
       <div style="overflow-x:auto;">
         <table>
           <thead>
@@ -111,10 +114,10 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td><strong>Server Room A</strong></td><td class="mono">20.55&deg;C</td><td class="mono">1.09&deg;C</td><td class="mono" style="color:var(--red);">30.62&deg;C</td><td class="mono">48.00%</td><td class="mono">18,801.1</td><td class="mono">27</td><td class="mono" style="color:var(--accent);">32 (0.74%)</td></tr>
-            <tr><td><strong>Server Room B</strong></td><td class="mono">21.05&deg;C</td><td class="mono">1.08&deg;C</td><td class="mono" style="color:var(--red);">31.32&deg;C</td><td class="mono">49.99%</td><td class="mono">17,096.7</td><td class="mono">24</td><td class="mono" style="color:var(--accent);">29 (0.67%)</td></tr>
-            <tr><td><strong>Clinic / Lobby HVAC</strong></td><td class="mono">23.55&deg;C</td><td class="mono">1.07&deg;C</td><td class="mono" style="color:var(--red);">32.88&deg;C</td><td class="mono">54.96%</td><td class="mono">12,351.8</td><td class="mono">29</td><td class="mono" style="color:var(--accent);">33 (0.76%)</td></tr>
-            <tr><td><strong>RnEST Lab</strong></td><td class="mono">24.52&deg;C</td><td class="mono">1.04&deg;C</td><td class="mono" style="color:var(--red);">33.90&deg;C</td><td class="mono">58.03%</td><td class="mono">8,904.5</td><td class="mono">22</td><td class="mono" style="color:var(--accent);">26 (0.60%)</td></tr>
+            <tr><td><strong>Server Room A</strong></td><td class="mono">20.55&deg;C</td><td class="mono">1.09&deg;C</td><td class="mono" style="color:var(--red); font-weight:700;">30.62&deg;C</td><td class="mono">48.00%</td><td class="mono">18,801.1</td><td class="mono">27</td><td class="mono" style="color:var(--accent); font-weight:700;">32 (0.74%)</td></tr>
+            <tr><td><strong>Server Room B</strong></td><td class="mono">21.05&deg;C</td><td class="mono">1.08&deg;C</td><td class="mono" style="color:var(--red); font-weight:700;">31.32&deg;C</td><td class="mono">49.99%</td><td class="mono">17,096.7</td><td class="mono">24</td><td class="mono" style="color:var(--accent); font-weight:700;">29 (0.67%)</td></tr>
+            <tr><td><strong>Clinic / Lobby HVAC</strong></td><td class="mono">23.55&deg;C</td><td class="mono">1.07&deg;C</td><td class="mono" style="color:var(--red); font-weight:700;">32.88&deg;C</td><td class="mono">54.96%</td><td class="mono">12,351.8</td><td class="mono">29</td><td class="mono" style="color:var(--accent); font-weight:700;">33 (0.76%)</td></tr>
+            <tr><td><strong>RnEST Lab</strong></td><td class="mono">24.52&deg;C</td><td class="mono">1.04&deg;C</td><td class="mono" style="color:var(--red); font-weight:700;">33.90&deg;C</td><td class="mono">58.03%</td><td class="mono">8,904.5</td><td class="mono">22</td><td class="mono" style="color:var(--accent); font-weight:700;">26 (0.60%)</td></tr>
           </tbody>
         </table>
       </div>
@@ -142,11 +145,11 @@ anomalies = [x for x in series if std_t &gt; 0 and abs(x[1] - mean_t) / std_t &g
 
   <script>
     const root = document.documentElement;
-    const savedTheme = localStorage.getItem('daffa_theme') || 'dark';
+    const savedTheme = localStorage.getItem('daffa_theme_v2') || 'light';
     root.setAttribute('data-theme', savedTheme);
     const toggleBtn = document.getElementById('themeToggle');
     function updateToggleLabel() {
-      toggleBtn.textContent = root.getAttribute('data-theme') === 'dark' ? 'Light Mode' : 'Dark Mode';
+      toggleBtn.textContent = root.getAttribute('data-theme') === 'light' ? 'Dark Mode' : 'Light Mode';
     }
     updateToggleLabel();
 
@@ -196,7 +199,7 @@ anomalies = [x for x in series if std_t &gt; 0 and abs(x[1] - mean_t) / std_t &g
         data: {
           labels: zones.map(d => d.z),
           datasets: [
-            { label: "Total kWh", data: zones.map(d => d.kwh), backgroundColor: "rgba(16, 185, 129, 0.5)", yAxisID: "y" },
+            { label: "Total kWh", data: zones.map(d => d.kwh), backgroundColor: "rgba(5, 150, 105, 0.45)", yAxisID: "y" },
             { type: "line", label: "Temp Breaches", data: zones.map(d => d.b), borderColor: red, backgroundColor: red, yAxisID: "y1", tension: 0.2 }
           ]
         },
@@ -212,9 +215,9 @@ anomalies = [x for x in series if std_t &gt; 0 and abs(x[1] - mean_t) / std_t &g
     }
 
     toggleBtn.addEventListener('click', () => {
-      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
       root.setAttribute('data-theme', next);
-      localStorage.setItem('daffa_theme', next);
+      localStorage.setItem('daffa_theme_v2', next);
       updateToggleLabel();
       renderCharts();
     });
